@@ -2,8 +2,6 @@
 
 ifeq ($(BSP_BUILD_DT_OVERLAY),y)
 
-ifeq ($(BSP_BUILD_ANDROID_OS),y)
-
 ifeq ($(BSP_BUILD_FAMILY),sharkl3)
 dtbo-$(CONFIG_ARCH_SPRD) += \
 	sp9863a-3h10-overlay.dtbo \
@@ -65,22 +63,6 @@ ums9230-3h10-go-overlay.dtbo-base := ums9230.dtb
 ums9230-14c10-overlay.dtbo-base := ums9230.dtb
 endif
 
-ifeq ($(BSP_BUILD_FAMILY),qogirn6pro)
-dtbo-$(CONFIG_ARCH_SPRD) += ums9520-haps-backdoor-overlay.dtbo \
-	ums9520-haps-flash-overlay.dtbo \
-	ums9620-1h10-overlay.dtbo \
-	ums9620-2h10-overlay.dtbo \
-	ums9620-2c10-overlay.dtbo
-
-ums9520-haps-backdoor-overlay.dtbo-base := ums9520-haps.dtb
-ums9520-haps-flash-overlay.dtbo-base := ums9520-haps.dtb
-ums9620-1h10-overlay.dtbo-base := ums9620.dtb
-ums9620-2h10-overlay.dtbo-base := ums9620.dtb
-ums9620-2c10-overlay.dtbo-base := ums9620.dtb
-endif
-
-endif #//BSP_BUILD_ANDROID_OS
-
 else #//AiAiAi or No DTBO
 dtb-$(CONFIG_ARCH_SPRD) += \
 	sc9863a-w12v1.dtb   \
@@ -107,8 +89,7 @@ dtbo-$(CONFIG_ARCH_SPRD) += \
 	ums9230-haps-flash-overlay.dtbo \
 	ums9230-zebu-backdoor-overlay.dtbo \
 	ums9620-1h10-overlay.dtbo \
-	ums9620-2h10-overlay.dtbo \
-	ums9620-2c10-overlay.dtbo
+	ums9620-2h10-overlay.dtbo
 
 endif #//BSP_BUILD_DT_OVERLAY
 
